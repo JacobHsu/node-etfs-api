@@ -1,0 +1,12 @@
+{
+  "name": "node-etfs-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:JacobHsu/node-etfs-api.git",
+  "author": "jacobhsu <jacob.hsu.tw@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}
