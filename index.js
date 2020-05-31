@@ -38,7 +38,7 @@ var historical = function (symbol, from, to, callback) {
 }
 
 
-let arrStock = ['VT','VTI','VGK','VPL','VWO'] 
+let arrStock = ['VT','VTI','VGK','VPL','VWO','ARGT','EWA','EWO','EWK','EWZ','EWC','ECH','EWC','MCHI','ICOL','EDEN','EGPT','EFNL','EWQ','EWG','GREK','EWH','INDA','EIDO','EIRL','EIS','EWI','EWJ','EWY','EWM','EWW'] 
 const d = new Date();
 const today = d.toISOString().substring(0, 10);
 
