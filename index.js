@@ -38,12 +38,12 @@ var historical = function (symbol, from, to, callback) {
 }
 
 
-let arrStock = ['VT','VTI','VGK','VPL','VWO','ARGT','EWA','EWO','EWK','EWZ','EWC','ECH','EWC','MCHI','ICOL','EDEN','EGPT','EFNL','EWQ','EWG','GREK','EWH','INDA','EIDO','EIRL','EIS','EWI','EWJ','EWY','EWM','EWW'] 
+let arrStock = ['VT','VTI','VGK','VPL','VWO','ARGT','EWA','EWO','EWK','EWZ','EWC','ECH','EWC','MCHI','ICOL','EDEN','EGPT','EFNL','EWQ','EWG','GREK','EWH','INDA','EIDO','EIRL','EIS','EWI','EWJ','EWY','EWM','EWW','EWN','ENZL','NGE','ENOR','PAK','EPU','EPHE','EPOL','PGAL','QAT','ERUS','KSA','EWS','EZA','EWP','EWD','EWL','EWT','THD','TUR','UAE','EWU','VOO','VNM'] 
 const d = new Date();
 const today = d.toISOString().substring(0, 10);
 
 
-let sevenDaysAgo = d.setDate(d.getDate() - 7);
+let sevenDaysAgo = d.setDate(d.getDate() - 14);
 sevenDaysAgo = new Date(sevenDaysAgo).toISOString().substring(0, 10);;
 
 
