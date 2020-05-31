@@ -43,14 +43,14 @@ const d = new Date();
 const today = d.toISOString().substring(0, 10);
 
 
-let sevenDaysAgo = d.setDate(d.getDate() - 14);
-sevenDaysAgo = new Date(sevenDaysAgo).toISOString().substring(0, 10);;
+let twoWeeksAgo = d.setDate(d.getDate() - 14);
+twoWeeksAgo = new Date(twoWeeksAgo).toISOString().substring(0, 10);;
 
 
 let countArr = []
 let retJSON = {}
 for(let stock of arrStock){
-  historical(stock, sevenDaysAgo, today, function(error, result) {
+  historical(stock, twoWeeksAgo, today, function(error, result) {
     countArr.push(stock)
     retJSON = (countArr.length === arrStock.length ) ? result : error
   }) 
@@ -61,7 +61,7 @@ app.use('/api', router)
 router.get('/etfs', cors(), function (req, res) {
   res.json({
     errno: 0,
-    data: retJSON,
+    etf: retJSON,
   })
 })
 
