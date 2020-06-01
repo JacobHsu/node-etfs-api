@@ -30,16 +30,11 @@ var historical = function (symbol, from, to, callback) {
       }
 
       const arrClose = quotesMap.map((obj) => obj.close.toFixed(2))
-      let key = quotes[0].symbol;
-      retObj[key] = arrClose;
-
-      const todayUpOrDownVal =  ( retObj[key][0] - retObj[key][1] ).toFixed(2) 
-      updown[key] = todayUpOrDownVal
-      retObj['updown'] = updown
-
-      const countryCode = toid.mapid(key)
-      countries[countryCode] = todayUpOrDownVal 
-      retObj['countries'] = countries 
+      let etf = {}
+      etf['price'] = arrClose
+      etf['todayUpOrDownVal'] = ( arrClose[0]-arrClose[1]).toFixed(2) 
+      etf['countryCode'] = toid.mapid(symbol) 
+      retObj[symbol] = etf;
       
       callback(null, retObj)
 
