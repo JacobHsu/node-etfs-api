@@ -4,7 +4,9 @@ const app = express()
 const router = express.Router()
 const yahooFinance = require('yahoo-finance')
 const moment = require('moment')
-let retObj = {}
+const toid   = require('./world');
+
+let retObj = {} , updown = {}, countries = {}
 var historical = function (symbol, from, to, callback) {
     yahooFinance.historical(
     {
@@ -31,6 +33,14 @@ var historical = function (symbol, from, to, callback) {
       let key = quotes[0].symbol;
       retObj[key] = arrClose;
 
+      const todayUpOrDownVal =  ( retObj[key][0] - retObj[key][1] ).toFixed(2) 
+      updown[key] = todayUpOrDownVal
+      retObj['updown'] = updown
+
+      const countryCode = toid.mapid(key)
+      countries[countryCode] = todayUpOrDownVal 
+      retObj['countries'] = countries 
+      
       callback(null, retObj)
 
     }
