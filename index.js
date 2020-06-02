@@ -31,8 +31,8 @@ var historical = function (symbol, from, to, callback) {
 
       const arrClose = quotesMap.map((obj) => obj.close.toFixed(2))
       let etf = {}
-      etf['price'] = arrClose
-      etf['todayUpOrDownVal'] = ( arrClose[0]-arrClose[1]).toFixed(2) 
+      etf['periodPrice'] = arrClose
+      etf['periodChg'] = ( arrClose[0]-arrClose[arrClose.length - 1]).toFixed(2) 
       etf['countryCode'] = toid.mapid(symbol) 
       retObj[symbol] = etf;
       
