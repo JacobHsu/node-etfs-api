@@ -4,7 +4,26 @@ const app = express()
 const router = express.Router()
 const yahooFinance = require('yahoo-finance')
 const moment = require('moment')
-const toid   = require('./world');
+var _ = require('lodash');
+
+
+let etfStock = [
+  'ARGT','EWA','EWO','EWK','EWZ','EWC','ECH','MCHI','ICOL','EDEN',
+  'EGPT','EFNL','EWQ','EWG','GREK','EWH','INDA','EIDO','EIRL',
+  'EIS','EWI','EWJ','EWY','EWM','EWW','EWN','ENZL','NGE','ENOR',
+  'PAK','EPU','EPHE','EPOL','PGAL','QAT','ERUS','KSA','EWS','EZA',
+  'EWP','EWD','EWL','EWT','THD','TUR','UAE','EWU','VOO','VNM'
+] 
+let idStock = [
+  'ARG','AUS','AUT','BEL','BRA','CAN','CHL','CHN','COL','DNK',
+  'EGY','FIN','FRA','DEU','GRC','HKG','IND','IDN','IRL',
+  'ISR','ITA','JPN','KOR','MYS','MEX','NLD','NZL','NGA','NOR',
+  'PAK','PER','PHL','POL','PRT','QAT','RUS','SAU','SGP','ZAF',
+  'ESP','SWE','CHE','TWN','THA','TUR','ARE','GBR','USA','VNM'
+] 
+
+const etfIdObj =  _.zipObject(etfStock, idStock);
+
 
 let retObj = {} , updown = {}, countries = {}
 var historical = function (symbol, from, to, callback) {
@@ -33,7 +52,7 @@ var historical = function (symbol, from, to, callback) {
       let etf = {}
       etf['periodPrice'] = arrClose
       etf['periodChg'] = ( arrClose[0]-arrClose[arrClose.length - 1]).toFixed(2) 
-      etf['countryCode'] = toid.mapid(symbol) 
+      etf['countryCode'] = etfIdObj[symbol]
       retObj[symbol] = etf;
       
       callback(null, retObj)
@@ -44,9 +63,9 @@ var historical = function (symbol, from, to, callback) {
 
 
 let arrStock = ['VT','VTI','VGK','VPL','VWO','ARGT','EWA','EWO','EWK','EWZ','EWC','ECH','EWC','MCHI','ICOL','EDEN','EGPT','EFNL','EWQ','EWG','GREK','EWH','INDA','EIDO','EIRL','EIS','EWI','EWJ','EWY','EWM','EWW','EWN','ENZL','NGE','ENOR','PAK','EPU','EPHE','EPOL','PGAL','QAT','ERUS','KSA','EWS','EZA','EWP','EWD','EWL','EWT','THD','TUR','UAE','EWU','VOO','VNM'] 
+
 const d = new Date();
 const today = d.toISOString().substring(0, 10);
-
 
 let twoWeeksAgo = d.setDate(d.getDate() - 14);
 twoWeeksAgo = new Date(twoWeeksAgo).toISOString().substring(0, 10);;
