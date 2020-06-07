@@ -45,12 +45,12 @@ var historical = function (symbol, from, to, callback) {
         const arrDate = quotesMap.map((obj) =>
           moment(obj.date).format('yyyy-MM-DD')
         )
-        retObj['period'] = arrDate
+        retObj['period'] = _.reverse(arrDate)
       }
 
       const arrClose = quotesMap.map((obj) => obj.close.toFixed(2))
       let etf = {}
-      etf['periodPrice'] = arrClose
+      etf['periodPrice'] = _.reverse(arrClose)
       etf['periodChg'] = ( arrClose[0]-arrClose[arrClose.length - 1]).toFixed(2) 
       etf['countryCode'] = etfIdObj[symbol]
       retObj[symbol] = etf;
