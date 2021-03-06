@@ -10,7 +10,7 @@ var _ = require('lodash');
 let etfStock = [
   'ARGT','EWA','EWO','EWK','EWZ','EWC','ECH','MCHI','ICOL','EDEN',
   'EGPT','EFNL','EWQ','EWG','GREK','EWH','INDA','EIDO','EIRL',
-  'EIS','EWI','EWJ','EWY','EWM','EWW','EWN','ENZL','NGE','ENOR',
+  'EIS','EWI','EWJ','KWT','EWY','EWM','EWW','EWN','ENZL','NGE','ENOR',
   'PAK','EPU','EPHE','EPOL','PGAL','QAT','RSX','KSA','EWS','EZA',
   'EWP','EWD','EWL','EWT','THD','TUR','UAE','EWU','VOO','VNM'
 ] 
