@@ -1,5 +1,7 @@
 # node-etfs-api
 
+[render](https://render.com/) `npm install` `npm run mock`  
+
 `$ heroku login`  
 `$ heroku create <project-name>`   
 
@@ -12,3 +14,5 @@ Every push to master will deploy a new version of this app. Deploys happen autom
 
 http://localhost:8000/api/etfs
 https://node-etfs-api.herokuapp.com/api/etfs
+https://node-etfs-api.onrender.com/api/etfs
+
